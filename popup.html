@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="ui.css"><style>body{width:316px}</style></head>
+<body><div class="app">
+  <header>
+    <div class="brand"><img src="icons/icon48.png" alt=""><div><b>Alignly</b><small>Left or right, your call</small></div></div>
+    <div class="tools">
+      <button class="ib" id="theme" title="Switch dark / light" aria-label="Switch dark or light mode"></button>
+      <button class="ib" id="opts" data-i="sliders" title="Settings" aria-label="Settings"></button>
+    </div>
+  </header>
+  <section>
+    <h2>Page text</h2>
+    <div class="seg" id="page">
+      <button data-scope="page" data-dir="left" data-i="left">Left</button>
+      <button data-scope="page" data-dir="toggle" data-i="flip">Flip</button>
+      <button data-scope="page" data-dir="right" data-i="right">Right</button>
+    </div>
+  </section>
+  <section>
+    <h2>Selected text</h2>
+    <div class="seg">
+      <button data-scope="sel" data-dir="left" data-i="left">Left</button>
+      <button data-scope="sel" data-dir="toggle" data-i="flip">Flip</button>
+      <button data-scope="sel" data-dir="right" data-i="right">Right</button>
+    </div>
+    <p class="hint" id="hint">Select text on the page, then pick a side.</p>
+  </section>
+  <button class="btn full" id="reset" data-i="reset" title="">Reset all</button>
+</div>
+<script src="shared.js"></script><script src="popup.js"></script></body></html>

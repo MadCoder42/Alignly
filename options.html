@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Alignly settings</title><link rel="stylesheet" href="ui.css"></head>
+<body><main class="wide">
+  <header>
+    <div class="brand"><img src="icons/icon48.png" alt=""><div><b>Alignly settings</b><small>Changes save automatically</small></div></div>
+    <button class="ib" id="theme" title="Switch dark / light" aria-label="Switch dark or light mode"></button>
+  </header>
+  <section>
+    <h2>Appearance</h2>
+    <div class="row"><div>Theme<small>Auto follows your system.</small></div>
+      <div class="seg flat" id="themeSeg"><button data-t="auto">Auto</button><button data-t="light">Light</button><button data-t="dark">Dark</button></div></div>
+  </section>
+  <section>
+    <h2>Behavior</h2>
+    <label class="row"><div>Show mini toolbar on selection<small>A small popup with left / right buttons appears next to selected text.</small></div><input class="sw" type="checkbox" id="showFloating"></label>
+    <label class="row"><div>Also switch text direction<small>Applies LTR / RTL, not only text-align. Turn off to change alignment only.</small></div><input class="sw" type="checkbox" id="applyDirection"></label>
+    <label class="row"><div>Remember page alignment per site<small>Reapplies your choice whenever you revisit that website.</small></div><input class="sw" type="checkbox" id="rememberSites"></label>
+  </section>
+  <section>
+    <h2>Keyboard shortcuts</h2>
+    <div id="keys"></div>
+    <p class="hint">Click a field and press the keys. Include Ctrl, Alt or ⌘. Backspace clears a shortcut.</p>
+  </section>
+  <p><button class="btn" id="reset">Restore defaults</button><button class="btn" id="forget">Forget saved sites</button></p>
+</main>
+<script src="shared.js"></script><script src="options.js"></script></body></html>
