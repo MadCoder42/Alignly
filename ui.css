@@ -13,6 +13,7 @@ header{display:flex;align-items:center;justify-content:space-between;margin-bott
 section{background:var(--surface);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}
 h2{margin:0 0 10px;font-size:13px;font-weight:600;color:var(--muted)}
 .seg{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--bg);padding:4px;border-radius:11px}
+.seg.two{grid-template-columns:repeat(2,1fr)}
 .seg button{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 4px;border-radius:8px;font-size:12px;color:var(--muted);text-align:center;transition:background .15s,color .15s}
 .seg button:hover{color:var(--text)}
 .seg button.on{background:var(--accent);color:var(--accent-ink);font-weight:600}
@@ -31,5 +32,7 @@ input.key.err{border-color:#e5484d;animation:shake .3s}
 .btn{all:unset;cursor:pointer;padding:8px 14px;border-radius:10px;background:var(--soft);color:var(--accent);font-weight:600;font-size:13px;margin-right:8px}
 .btn:hover{filter:brightness(.96)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,12px);max-width:calc(100vw - 32px);padding:10px 16px;border-radius:12px;background:var(--text);color:var(--bg);font-size:13px;font-weight:600;box-shadow:0 6px 24px rgba(20,24,50,.25);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:10}
+.toast.show{opacity:1;transform:translate(-50%,0)}
 .btn.full{display:block;width:100%;text-align:center;margin:0;padding:10px}
 .btn svg{width:16px;height:16px;vertical-align:-3px;margin-right:6px}

@@ -10,7 +10,7 @@
     document.documentElement.dataset.theme = t;
     $('#theme').innerHTML = icon(t === 'dark' ? 'sun' : 'moon');
     document.querySelectorAll('#themeSeg button').forEach(b => b.classList.toggle('on', b.dataset.t === S.theme));
-    ['showFloating', 'applyDirection', 'rememberSites'].forEach(k => $('#' + k).checked = S[k]);
+    ['showFloating', 'rememberSites'].forEach(k => $('#' + k).checked = S[k]);
     $('#keys').innerHTML = '';
     for (const k of Object.keys(LABELS)) {
       const row = document.createElement('div'); row.className = 'row';
@@ -32,13 +32,26 @@
       row.appendChild(inp); $('#keys').appendChild(row);
     }
   }
+  let toastTimer;
+  const toast = msg => {
+    const t = $('#toast');
+    t.textContent = msg; t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2400);
+  };
   const save = async patch => { Object.assign(S, patch); await saveSettings(patch); render(); };
 
   hydrate();
   $('#theme').onclick = () => save({ theme: effectiveTheme(S) === 'dark' ? 'light' : 'dark' });
   document.querySelectorAll('#themeSeg button').forEach(b => b.onclick = () => save({ theme: b.dataset.t }));
-  ['showFloating', 'applyDirection', 'rememberSites'].forEach(k => $('#' + k).onchange = e => save({ [k]: e.target.checked }));
-  $('#reset').onclick = async () => { await api.storage.sync.remove('settings'); S = await getSettings(); render(); };
-  $('#forget').onclick = async () => { await api.storage.local.remove('sites'); $('#forget').textContent = 'Saved sites cleared'; };
+  ['showFloating', 'rememberSites'].forEach(k => $('#' + k).onchange = e => save({ [k]: e.target.checked }));
+  $('#reset').onclick = async () => {
+    try { await api.storage.sync.remove('settings'); S = await getSettings(); render(); toast('Settings restored to defaults'); }
+    catch { toast('Couldn\u2019t restore defaults'); }
+  };
+  $('#forget').onclick = async () => {
+    try { await api.storage.local.remove('sites'); toast('Saved sites cleared'); }
+    catch { toast('Couldn\u2019t clear saved sites'); }
+  };
   render();
 })();

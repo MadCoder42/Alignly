@@ -13,7 +13,6 @@
   <section>
     <h2>Behavior</h2>
     <label class="row"><div>Show mini toolbar on selection<small>A small popup with left / right buttons appears next to selected text.</small></div><input class="sw" type="checkbox" id="showFloating"></label>
-    <label class="row"><div>Also switch text direction<small>Applies LTR / RTL, not only text-align. Turn off to change alignment only.</small></div><input class="sw" type="checkbox" id="applyDirection"></label>
     <label class="row"><div>Remember page alignment per site<small>Reapplies your choice whenever you revisit that website.</small></div><input class="sw" type="checkbox" id="rememberSites"></label>
   </section>
   <section>
@@ -23,4 +22,5 @@
   </section>
   <p><button class="btn" id="reset">Restore defaults</button><button class="btn" id="forget">Forget saved sites</button></p>
 </main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="shared.js"></script><script src="options.js"></script></body></html>

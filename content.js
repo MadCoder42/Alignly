@@ -17,7 +17,7 @@
     const out = [], dirs = [['right', 'rtl'], ['left', 'ltr']];
     const rules = v => {
       const d = v === 'right' ? 'rtl' : 'ltr';
-      return [`text-align:${v}!important;`, S.applyDirection ? `direction:${d}!important;` : ''];
+      return [`text-align:${v}!important;`, `direction:${d}!important;`];
     };
     for (const [v] of dirs) {   // whole page: text elements only, layout boxes are untouched
       const [ta, di] = rules(v);

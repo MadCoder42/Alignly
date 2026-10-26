@@ -14,7 +14,6 @@
   };
   $('#opts').onclick = () => { api.runtime.openOptionsPage(); close(); };
 
-  document.querySelectorAll('[data-dir=toggle]').forEach(b => b.title = S.shortcuts[b.dataset.scope === 'sel' ? 'selToggle' : 'pageToggle'] || '');
   $('#reset').title = S.shortcuts.resetAll || '';
 
   const [tab] = await api.tabs.query({ active: true, currentWindow: true });
